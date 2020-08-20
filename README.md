@@ -1,5 +1,6 @@
 # OpenBullet_FastAPI
 Test OpenBullet configs with a remote server like pythons' FastAPI module
+Using requests module is not the best, A better module might be aiohttp
 
 # FastAPI
 ```pip install fastapi```
