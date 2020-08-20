@@ -12,10 +12,10 @@ Test OpenBullet configs with a remote server like pythons' FastAPI module
 Clone the repo https://github.com/Categorically/OpenBullet2Python
 
 Files
--Root
-  -OpenBullet2Python
-    -TestConfig.py
-  -main.py
+- Root
+  - OpenBullet2Python
+      - TestConfig.py
+  - main.py
  
 # Running main.py
 ```uvicorn main:app --reload```
