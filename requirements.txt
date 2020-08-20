@@ -1,0 +1,3 @@
+OpenBullet2Python # Github
+fastapi
+uvicorn
