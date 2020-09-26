@@ -6,6 +6,7 @@ class CVar(BaseModel):
     name : str = Field(description="The name of the variable", min_length=1)
     value : str = Field(description="The value of the variable", min_length=1)
     hidden : bool = Field(False, description="Hidden variables will not be outputted")
+    IsCapture : bool = Field(False,description="If the variable is capture")
 
 class configIn(BaseModel):
     name: str = Field(description="Name of the config",min_length=1)
@@ -15,5 +16,5 @@ class configIn(BaseModel):
 class configOut(BaseModel):
     name:str
     status: str
-    variables: List[dict] = []
-    capture_variables: List[dict] = []
+    variables: List[CVar]
+    capture_variables: List[CVar]
