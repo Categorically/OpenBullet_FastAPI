@@ -5,8 +5,8 @@ from typing import Optional,List,Dict
 class CVar(BaseModel):
     name : str = Field(description="The name of the variable", min_length=1)
     value : str = Field(description="The value of the variable", min_length=1)
-    hidden : bool = Field(False, description="Hidden variables will not be outputted")
     IsCapture : bool = Field(False,description="If the variable is capture")
+    hidden : bool = Field(False, description="Hidden variables will not be outputted")
 
 class configIn(BaseModel):
     name: str = Field(description="Name of the config",min_length=1)
