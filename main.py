@@ -2,7 +2,7 @@
 from OpenBullet2Python.TestConfig import TestConfig
 from OpenBullet2Python.Models.BotData import BotData
 from OpenBullet2Python.Models.CVar import CVar
-from fastapi import FastAPI,HTTPException,Request
+from fastapi import FastAPI,Request
 from base64 import b64decode
 from models.config import configIn,configOut
 from fastapi.responses import JSONResponse
@@ -19,11 +19,8 @@ async def unicorn_exception_handler(request: Request, exc: config_exception):
         status_code=400,
         content={"message": exc.message},
     )
-@app.post("/")
-async def root():
-    return {"message": "Hello World"}
 
-@app.post("/api/import/",response_model=configOut)
+@app.post("/api/config/test/",response_model=configOut)
 async def test_config(config: configIn):
     
     # Decode the base64
@@ -32,11 +29,12 @@ async def test_config(config: configIn):
     except:
         raise config_exception(message="Error decoding b64")
 
-    # Data contains the list of variable and the bot status
+    # Data contains the list of variables and the bot status
     data = BotData()
 
     # Add variables to to the list for repalcement
     for variable in config.replacement_variables:
+        # Add the CVar to the the list
         data.Variables.Set(CVar(variable.name,variable.value,variable.IsCapture,variable.hidden))
 
 
