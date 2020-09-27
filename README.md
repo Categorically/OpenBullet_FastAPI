@@ -27,3 +27,4 @@ Goto http://127.0.0.1:8000/docs
 
 Config text must be base64 encoded
  
+![docs](https://i.imgur.com/MM1KoaG.png)
